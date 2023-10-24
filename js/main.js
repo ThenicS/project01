@@ -28,7 +28,7 @@ function shuffle() {}
 function initialise() {
     // If setterTile index position get the array of posible mvoe tile
     // exchangeable();
-    checkWin();
+    render();
 }
 // ############## Checking win ###############
 function checkWin() {
@@ -42,7 +42,7 @@ function checkWin() {
         id7.firstChild.className === 'tile7' &&
         id8.firstChild.className === 'tile8'
     ) {
-        return true;
+        return console.log(true);
     }
     return false;
 }
@@ -63,16 +63,24 @@ function indexPosition(setterTile) {
     console.log(index);
     return index;
 }
-
-id9.addEventListener('click', function () {
-    let oldpic = this.innerHTML;
-    // console.log(oldpic);
-    this.innerHTML = id6.innerHTML;
-    id6.innerHTML = oldpic;
-    // console.log(id6);
-    textTurn.innerHTML = 'TURN: 1';
-    return this.id;
-});
+// addeventListener form output
+function addEvent(index, posibleMoveTile) {
+    let arr = posibleMoveTile;
+}
+// removeEventlistener
+// function removeEvt(element) {
+//     element.removeEventListener('click');
+// }
+// test eventListener
+// id9.addEventListener('click', function () {
+//     let oldpic = this.innerHTML;
+//     // console.log(oldpic);
+//     this.innerHTML = id6.innerHTML;
+//     id6.innerHTML = oldpic;
+//     // console.log(id6);
+//     textTurn.innerHTML = 'TURN: 1';
+//     return this.id;
+// });
 id6.addEventListener('click', function () {
     let oldpic = this.innerHTML;
     // console.log(oldpic);
@@ -81,19 +89,103 @@ id6.addEventListener('click', function () {
     // console.log(id9);
     textTurn.innerHTML = 'TURN: 1';
     console.log(exchangeable(this.id));
-    return exchangeable(this.id);
+    exchangeable(this.id);
 });
-id8.addEventListener('click', function () {
-    let oldpic = this.innerHTML;
-    // console.log(oldpic);
+// id9.addEventListener('click', evAdd);// comment me back
+
+// id8.addEventListener('click', function () {
+//     let oldpic = this.innerHTML;
+//     // console.log(oldpic);
+//     this.innerHTML = id9.innerHTML;
+//     id9.innerHTML = oldpic;
+//     // console.log(id9);
+//     textTurn.innerHTML = 'TURN: 1';
+//     // console an Array
+//     console.log(exchangeable(this.id));
+//     return exchangeable(this.id);
+// });
+function evAdd1() {
+    let imgTag = this.innerHTML;
+    this.innerHTML = id1.innerHTML;
+    id1.innerHTML = imgTag;
+    // console.log(exchangeable(this.id));
+    exchangeable(this.id);
+    console.log(this.id);
+    checkWin();
+}
+function evAdd2() {
+    let imgTag = this.innerHTML;
+    this.innerHTML = id2.innerHTML;
+    id2.innerHTML = imgTag;
+    // console.log(exchangeable(this.id));
+    exchangeable(this.id);
+    console.log(this.id);
+    checkWin();
+}
+function evAdd3() {
+    let imgTag = this.innerHTML;
+    this.innerHTML = id3.innerHTML;
+    id3.innerHTML = imgTag;
+    // console.log(exchangeable(this.id));
+    exchangeable(this.id);
+    console.log(this.id);
+    checkWin();
+}
+function evAdd4() {
+    let imgTag = this.innerHTML;
+    this.innerHTML = id4.innerHTML;
+    id4.innerHTML = imgTag;
+    // console.log(exchangeable(this.id));
+    exchangeable(this.id);
+    console.log(this.id);
+    checkWin();
+}
+function evAdd5() {
+    let imgTag = this.innerHTML;
+    this.innerHTML = id5.innerHTML;
+    id5.innerHTML = imgTag;
+    // console.log(exchangeable(this.id));
+    exchangeable(this.id);
+    console.log(this.id);
+    checkWin();
+}
+function evAdd6() {
+    let imgTag = this.innerHTML;
+    this.innerHTML = id6.innerHTML;
+    id6.innerHTML = imgTag;
+    // console.log(exchangeable(this.id));
+    exchangeable(this.id);
+    console.log(this.id);
+    checkWin();
+}
+function evAdd7() {
+    let imgTag = this.innerHTML;
+    this.innerHTML = id7.innerHTML;
+    id7.innerHTML = imgTag;
+    // console.log(exchangeable(this.id));
+    exchangeable(this.id);
+    console.log(this.id);
+    checkWin();
+}
+function evAdd8() {
+    let imgTag = this.innerHTML;
+    this.innerHTML = id8.innerHTML;
+    id8.innerHTML = imgTag;
+    // console.log(exchangeable(this.id));
+    exchangeable(this.id);
+    console.log(this.id);
+    checkWin();
+}
+function evAdd9() {
+    let imgTag = this.innerHTML;
     this.innerHTML = id9.innerHTML;
-    id9.innerHTML = oldpic;
-    // console.log(id9);
-    textTurn.innerHTML = 'TURN: 1';
-    // console an Array
-    console.log(exchangeable(this.id));
-    return exchangeable(this.id);
-});
+    id9.innerHTML = imgTag;
+    // console.log(exchangeable(this.id));
+    exchangeable(this.id);
+    console.log(this.id);
+    checkWin();
+}
+
 // ****** Add Event *******
 
 // Winning Condition
@@ -101,4 +193,27 @@ id8.addEventListener('click', function () {
 // Function of orderTile
 
 // test console.log
-console.log(exchangeable(9));
+function abc(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+        // let id = document.getElementById('`${i}`');
+        // console.log(id);
+    }
+}
+abc([4, 8, 9]);
+
+console.log(setter.parentElement.id);
+// Change render() to render(index) {}
+// index = position of setter tile
+function render() {
+    let setterIndex = setter.parentElement.id;
+    if (setterIndex == 6) {
+        id9.addEventListener('click', evAdd6);
+        id5.addEventListener('click', evAdd6);
+        id3.addEventListener('click', evAdd6);
+    }
+    if (setterIndex == 7) {
+        id4.addEventListener('click', evAdd7);
+        id8.addEventListener('click', evAdd7);
+    }
+}

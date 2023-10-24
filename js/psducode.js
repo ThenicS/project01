@@ -38,3 +38,21 @@ id6.addEventListener('click', function () {
     textTurn.innerHTML = 'TURN: 1';
     console.log(this.id);
 });
+
+function evAdd() {
+    let oldpic = this.innerHTML;
+    this.innerHTML = id9.innerHTML;
+    id9.innerHTML = oldpic;
+    console.log(exchangeable(this.id));
+    console.log(this.id);
+    exchangeable(this.id);
+    checkWin();
+}
+
+function abc(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        let (id + i) = document.getElementById('`${i}`');
+        console(id + i)
+    }
+}
+const id3 = document.getElementById('3');//3,5,9
