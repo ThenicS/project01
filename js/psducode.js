@@ -56,3 +56,33 @@ function abc(arr) {
     }
 }
 const id3 = document.getElementById('3');//3,5,9
+
+// ******* Exchangeable function *******
+function exchangeable(id) {
+    if (id == 1) return [2, 4];
+    if (id == 2) return [1, 3, 5];
+    if (id == 3) return [2, 6];
+    if (id == 4) return [1, 5, 7];
+    if (id == 5) return [2, 4, 6, 8];
+    if (id == 6) return [3, 5, 9];
+    if (id == 7) return [4, 8];
+    if (id == 8) return [5, 7, 9];
+    if (id == 9) return [6, 8];
+}
+function evAdd6() {
+    let imgTag = this.innerHTML;
+    this.innerHTML = id6.innerHTML;
+    id6.innerHTML = imgTag;
+    // console.log(exchangeable(this.id));
+    checkWin();
+    console.log(this.id);
+}
+function evAdd9() {
+    let imgTag = this.innerHTML;
+    this.innerHTML = id9.innerHTML;
+    id9.innerHTML = imgTag;
+    // console.log(exchangeable(this.id));
+    checkWin();
+    console.log(this.id);
+}
+// เช็๋ค render ในcheckWin แล้วค่อย removeEvent
