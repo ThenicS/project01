@@ -19,15 +19,37 @@ initialise();
 
 console.log(id1.firstChild.className);
 console.log(board.hasChildNodes);
+console.log(setter.parentElement.id);
 // console.log(setter);
 // console.log(textTurn);
 // console.log(setterTile.parentElement);
 // ############# shuffle tile ##################
-function shuffle() {}
+function shuffle() {
+    let image1 = id1.innerHTML;
+    let image2 = id2.innerHTML;
+    let image3 = id3.innerHTML;
+    let image4 = id4.innerHTML;
+    let image5 = id5.innerHTML;
+    let image6 = id6.innerHTML;
+    let image7 = id7.innerHTML;
+    let image8 = id8.innerHTML;
+    let imageSetter = id9.innerHTML;
+    id1.innerHTML = imageSetter;
+    id2.innerHTML = image8;
+    id3.innerHTML = image7;
+    id4.innerHTML = image6;
+    id5.innerHTML = image5;
+    id6.innerHTML = image4;
+    id7.innerHTML = image3;
+    id8.innerHTML = image2;
+    id9.innerHTML = image1;
+}
 // initialise game function
 function initialise() {
+    alert('Game Start!!');
+    // Suffletile
+    shuffle();
     // If setterTile index position get the array of posible mvoe tile
-    // exchangeable();
     render();
 }
 // ############## Checking win ###############
@@ -42,7 +64,8 @@ function checkWin() {
         id7.firstChild.className === 'tile7' &&
         id8.firstChild.className === 'tile8'
     ) {
-        return console.log(true);
+        alert('You Win!!');
+        return true;
     }
     return false;
 }
@@ -81,16 +104,16 @@ function addEvent(index, posibleMoveTile) {
 //     textTurn.innerHTML = 'TURN: 1';
 //     return this.id;
 // });
-id6.addEventListener('click', function () {
-    let oldpic = this.innerHTML;
-    // console.log(oldpic);
-    this.innerHTML = id9.innerHTML;
-    id9.innerHTML = oldpic;
-    // console.log(id9);
-    textTurn.innerHTML = 'TURN: 1';
-    console.log(exchangeable(this.id));
-    exchangeable(this.id);
-});
+// id6.addEventListener('click', function () {
+//     let oldpic = this.innerHTML;
+//     // console.log(oldpic);
+//     this.innerHTML = id9.innerHTML;
+//     id9.innerHTML = oldpic;
+//     // console.log(id9);
+//     textTurn.innerHTML = 'TURN: 1';
+//     console.log(exchangeable(this.id));
+//     exchangeable(this.id);
+// });
 // id9.addEventListener('click', evAdd);// comment me back
 
 // id8.addEventListener('click', function () {
@@ -206,14 +229,41 @@ console.log(setter.parentElement.id);
 // Change render() to render(index) {}
 // index = position of setter tile
 function render() {
+    // let setter1 = document.querySelector('.setterTile');
     let setterIndex = setter.parentElement.id;
-    if (setterIndex == 6) {
+    console.log(setterIndex);
+    if (setterIndex == 1) {
+        id2.addEventListener('click', evAdd1);
+        id4.addEventListener('click', evAdd1);
+    } else if (setterIndex == 2) {
+        id1.addEventListener('click', evAdd2);
+        id3.addEventListener('click', evAdd2);
+        id5.addEventListener('click', evAdd2);
+    } else if (setterIndex == 3) {
+        id2.addEventListener('click', evAdd3);
+        id5.addEventListener('click', evAdd3);
+    } else if (setterIndex == 4) {
+        id1.addEventListener('click', evAdd4);
+        id5.addEventListener('click', evAdd4);
+        id7.addEventListener('click', evAdd4);
+    } else if (setterIndex == 5) {
+        id2.addEventListener('click', evAdd5);
+        id4.addEventListener('click', evAdd5);
+        id6.addEventListener('click', evAdd5);
+        id8.addEventListener('click', evAdd5);
+    } else if (setterIndex == 6) {
         id9.addEventListener('click', evAdd6);
         id5.addEventListener('click', evAdd6);
         id3.addEventListener('click', evAdd6);
-    }
-    if (setterIndex == 7) {
+    } else if (setterIndex == 7) {
         id4.addEventListener('click', evAdd7);
         id8.addEventListener('click', evAdd7);
+    } else if (setterIndex == 8) {
+        id5.addEventListener('click', evAdd8);
+        id7.addEventListener('click', evAdd8);
+        id9.addEventListener('click', evAdd8);
+    } else if (setterIndex == 9) {
+        id6.addEventListener('click', evAdd9);
+        id8.addEventListener('click', evAdd9);
     }
 }
