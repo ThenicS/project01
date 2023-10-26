@@ -8,22 +8,34 @@ const id6 = document.getElementById('6');
 const id7 = document.getElementById('7');
 const id8 = document.getElementById('8');
 const id9 = document.getElementById('9');
+let hint = document.querySelector('.hintBoard');
 // get document
-let setter = document.querySelector('.setterTile');
+// let setter = document.querySelector('.setterTile');
 const board = document.querySelector('.puzzleBoard');
 const restartBtn = document.querySelector('.playButton');
 // let setterTile = document.querySelector('.setterTile');
 // let setterTileIndex = setterTile.parentElement.id;
 let textTurn = document.querySelector('.showTurn');
-let winningCondition = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-let gameReady;
-gameReady = false;
 console.log(restartBtn);
+restartBtn.addEventListener('click', initialise); // เดี้ยวกลับมาแก้ใหม่
+hint.addEventListener('click', showHint);
 initialise();
 
 console.log(id1.firstChild.className);
 console.log(board.hasChildNodes);
-console.log(setter.parentElement.id);
+console.log(hint);
+
+function showHint() {
+    let img = document.querySelector('#hintImage');
+    img.firstElementChild.src = './picture/Eevee3*3/solution.jpg';
+    setTimeout(() => {
+        img.firstElementChild.src = './picture/Eevee3*3/hint.png';
+    }, 500);
+
+    // console.log(this.firstElementChild);
+    // console.log(img.firstElementChild.src);
+}
+// console.log(setter.parentElement.id);
 // console.log(setter);
 // console.log(textTurn);
 // console.log(setterTile.parentElement);
@@ -51,9 +63,8 @@ function shuffle() {
 // initialise game function
 function initialise() {
     alert('Game Start!!');
-    render();
+    shuffle();
     // Suffletile
-    // shuffle();
     // If setterTile index position get the array of posible mvoe tile
     checkWin();
 }
@@ -67,12 +78,16 @@ function checkWin() {
         id5.firstChild.className === 'tile5' &&
         id6.firstChild.className === 'tile6' &&
         id7.firstChild.className === 'tile7' &&
-        id8.firstChild.className === 'tile8'
+        id8.firstChild.className === 'tile8' &&
+        id9.firstChild.className === 'setterTile'
     ) {
         alert('You Win!!');
+        removeEvent();
         return true;
+    } else {
+        removeEvent();
+        render();
     }
-    return false;
 }
 
 function indexPosition(setterTile) {
@@ -80,11 +95,6 @@ function indexPosition(setterTile) {
     console.log(index);
     return index;
 }
-// addeventListener form output
-function addEvent(index, posibleMoveTile) {
-    let arr = posibleMoveTile;
-}
-// removeEventlistener
 // function removeEvt(element) {
 //     element.removeEventListener('click');
 // }
@@ -126,6 +136,7 @@ function evAdd1() {
     this.innerHTML = id1.innerHTML;
     id1.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
+    checkWin();
     console.log(this.id);
 }
 function evAdd2() {
@@ -133,6 +144,7 @@ function evAdd2() {
     this.innerHTML = id2.innerHTML;
     id2.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
+    checkWin();
     console.log(this.id);
 }
 function evAdd3() {
@@ -140,6 +152,7 @@ function evAdd3() {
     this.innerHTML = id3.innerHTML;
     id3.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
+    checkWin();
     console.log(this.id);
 }
 function evAdd4() {
@@ -147,6 +160,7 @@ function evAdd4() {
     this.innerHTML = id4.innerHTML;
     id4.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
+    checkWin();
     console.log(this.id);
 }
 function evAdd5() {
@@ -154,6 +168,7 @@ function evAdd5() {
     this.innerHTML = id5.innerHTML;
     id5.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
+    checkWin();
     console.log(this.id);
 }
 function evAdd6() {
@@ -161,15 +176,15 @@ function evAdd6() {
     this.innerHTML = id6.innerHTML;
     id6.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
+    checkWin();
     console.log(this.id);
-    return this.id;
 }
 function evAdd7() {
     let imgTag = this.innerHTML;
     this.innerHTML = id7.innerHTML;
     id7.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
-
+    checkWin();
     console.log(this.id);
 }
 function evAdd8() {
@@ -177,6 +192,7 @@ function evAdd8() {
     this.innerHTML = id8.innerHTML;
     id8.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
+    checkWin();
     console.log(this.id);
 }
 function evAdd9() {
@@ -184,8 +200,8 @@ function evAdd9() {
     this.innerHTML = id9.innerHTML;
     id9.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
+    checkWin();
     console.log(this.id);
-    return this.id;
 }
 
 // shuffle
@@ -199,21 +215,7 @@ function evAdd9() {
 // retrartBtn click to play again
 // if not continue render
 
-// Winning Condition
-
-// Function of orderTile
-
-// test console.log
-function abc(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        console.log(arr[i]);
-        // let id = document.getElementById('`${i}`');
-        // console.log(id);
-    }
-}
-abc([4, 8, 9]);
-
-console.log(setter.parentElement.id);
+// console.log(setter.parentElement.id);
 // Change render() to render(index) {}
 // index = position of setter tile
 function render() {
@@ -248,9 +250,9 @@ function render() {
         return;
         // if setterTile in position 6 => can move tile3, tile5, tile9
     } else if (setterIndex == 6) {
-        id9.addEventListener('click', evAdd6);
-        id5.addEventListener('click', evAdd6);
         id3.addEventListener('click', evAdd6);
+        id5.addEventListener('click', evAdd6);
+        id9.addEventListener('click', evAdd6);
         // if setterTile in position 7 => can move tile4, tile8
     } else if (setterIndex == 7) {
         id4.addEventListener('click', evAdd7);
@@ -269,7 +271,7 @@ function render() {
     // let setterIndex2 = setterTile2.parentElement.id;
     // return console.log(setterIndex2);
 }
-// 1,2,3,4,5,6,7
+// 1,2,3,4,5,6,7,8,9
 function removeEvent() {
     id2.removeEventListener('click', evAdd1);
     id4.removeEventListener('click', evAdd1);
@@ -277,7 +279,7 @@ function removeEvent() {
     id3.removeEventListener('click', evAdd2);
     id5.removeEventListener('click', evAdd2);
     id2.removeEventListener('click', evAdd3);
-    id5.removeEventListener('click', evAdd3);
+    id6.removeEventListener('click', evAdd3);
     id1.removeEventListener('click', evAdd4);
     id5.removeEventListener('click', evAdd4);
     id7.removeEventListener('click', evAdd4);

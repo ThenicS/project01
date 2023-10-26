@@ -27,6 +27,26 @@ body {
 img.setterTile {
     border-radius: 50px;
 }
+.hintBoard {
+    width: 360px;
+    height: 360px;
+    background-color: lightblue;
+    border: 10px solid #0c67ae;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.hintBoard > div {
+    width: 360px;
+    height: 360px;
+    border: 1px solid #0c67ae;
+}
+.hintBoard > div > img {
+    width: 360px;
+    height: 360px;
+    border-radius: 25px;
+    cursor: pointer;
+}
 /* div > img {
     object-fit: cover;
 } */
