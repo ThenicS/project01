@@ -9,6 +9,9 @@ const id7 = document.getElementById('7');
 const id8 = document.getElementById('8');
 const id9 = document.getElementById('9');
 let hint = document.querySelector('.hintBoard');
+const dayNight = document.querySelector('.dayNight');
+const nightDay = document.querySelector('.nightDay');
+const shuffle = document.querySelector('.shuffleButton');
 // get document
 // let setter = document.querySelector('.setterTile');
 const board = document.querySelector('.puzzleBoard');
@@ -16,8 +19,20 @@ const restartBtn = document.querySelector('.playButton');
 // let setterTile = document.querySelector('.setterTile');
 // let setterTileIndex = setterTile.parentElement.id;
 let textTurn = document.querySelector('.showTurn');
+let turn = 0;
 console.log(restartBtn);
-restartBtn.addEventListener('click', initialise); // เดี้ยวกลับมาแก้ใหม่
+console.log(textTurn);
+// document.body.style.backgroundImage = "url('/picture/background/town02.jpg')";
+shuffle.addEventListener('click', shuffleTile);
+
+dayNight.addEventListener('click', function () {
+    document.body.style.backgroundImage =
+        "url('/picture/background/town02.jpg')";
+});
+nightDay.addEventListener('click', function () {
+    document.body.style.backgroundImage =
+        "url('/picture/background/town01.jpg')";
+});
 hint.addEventListener('click', showHint);
 initialise();
 
@@ -31,16 +46,45 @@ function showHint() {
     setTimeout(() => {
         img.firstElementChild.src = './picture/Eevee3*3/hint.png';
     }, 500);
-
     // console.log(this.firstElementChild);
     // console.log(img.firstElementChild.src);
+}
+function turnCount() {
+    textTurn.innerHTML = `TURN: ${turn}`;
+}
+function winnerImage() {
+    let img = document.querySelector('#hintImage');
+    img.firstElementChild.src = './picture/Eevee3*3/thanks.png';
 }
 // console.log(setter.parentElement.id);
 // console.log(setter);
 // console.log(textTurn);
 // console.log(setterTile.parentElement);
-// ############# shuffle tile ##################
-function shuffle() {
+// ############# Shuffle tile ##################
+function shuffleTile() {
+    let image1 = id1.innerHTML;
+    let image2 = id2.innerHTML;
+    let image3 = id3.innerHTML;
+    let image4 = id4.innerHTML;
+    let image5 = id5.innerHTML;
+    let image6 = id6.innerHTML;
+    let image7 = id7.innerHTML;
+    let image8 = id8.innerHTML;
+    let imageSetter = id9.innerHTML;
+    id1.innerHTML = image6;
+    id2.innerHTML = image7;
+    id3.innerHTML = image2;
+    id4.innerHTML = imageSetter;
+    id5.innerHTML = image1;
+    id6.innerHTML = image3;
+    id7.innerHTML = image5;
+    id8.innerHTML = image4;
+    id9.innerHTML = image8;
+    removeEvent();
+    render();
+}
+// ############# Starter Tile ##################
+function playAgain() {
     let image1 = id1.innerHTML;
     let image2 = id2.innerHTML;
     let image3 = id3.innerHTML;
@@ -62,9 +106,18 @@ function shuffle() {
 }
 // initialise game function
 function initialise() {
-    alert('Game Start!!');
-    shuffle();
+    // alert('Game Start!!');
+    turn = 0;
+    textTurn.innerHTML = `TURN: ${turn}`;
+    showHint();
+    // add showHint
+    hint.addEventListener('click', showHint);
+    // Event Shuffle
+    shuffle.addEventListener('click', shuffleTile);
+    // Remove event Play Again
+    restartBtn.removeEventListener('click', initialise);
     // Suffletile
+    playAgain();
     // If setterTile index position get the array of posible mvoe tile
     checkWin();
 }
@@ -81,9 +134,12 @@ function checkWin() {
         id8.firstChild.className === 'tile8' &&
         id9.firstChild.className === 'setterTile'
     ) {
-        alert('You Win!!');
+        // alert('You Win!!');
         removeEvent();
-        return true;
+        winnerImage();
+        restartBtn.addEventListener('click', initialise);
+        shuffle.removeEventListener('click', shuffleTile);
+        hint.removeEventListener('click', showHint);
     } else {
         removeEvent();
         render();
@@ -136,6 +192,8 @@ function evAdd1() {
     this.innerHTML = id1.innerHTML;
     id1.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
+    turn += 1;
+    turnCount();
     checkWin();
     console.log(this.id);
 }
@@ -144,6 +202,8 @@ function evAdd2() {
     this.innerHTML = id2.innerHTML;
     id2.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
+    turn += 1;
+    turnCount();
     checkWin();
     console.log(this.id);
 }
@@ -152,6 +212,8 @@ function evAdd3() {
     this.innerHTML = id3.innerHTML;
     id3.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
+    turn += 1;
+    turnCount();
     checkWin();
     console.log(this.id);
 }
@@ -160,6 +222,8 @@ function evAdd4() {
     this.innerHTML = id4.innerHTML;
     id4.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
+    turn += 1;
+    turnCount();
     checkWin();
     console.log(this.id);
 }
@@ -168,6 +232,8 @@ function evAdd5() {
     this.innerHTML = id5.innerHTML;
     id5.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
+    turn += 1;
+    turnCount();
     checkWin();
     console.log(this.id);
 }
@@ -176,6 +242,8 @@ function evAdd6() {
     this.innerHTML = id6.innerHTML;
     id6.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
+    turn += 1;
+    turnCount();
     checkWin();
     console.log(this.id);
 }
@@ -184,6 +252,8 @@ function evAdd7() {
     this.innerHTML = id7.innerHTML;
     id7.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
+    turn += 1;
+    turnCount();
     checkWin();
     console.log(this.id);
 }
@@ -192,6 +262,8 @@ function evAdd8() {
     this.innerHTML = id8.innerHTML;
     id8.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
+    turn += 1;
+    turnCount();
     checkWin();
     console.log(this.id);
 }
@@ -200,6 +272,8 @@ function evAdd9() {
     this.innerHTML = id9.innerHTML;
     id9.innerHTML = imgTag;
     // console.log(exchangeable(this.id));
+    turn += 1;
+    turnCount();
     checkWin();
     console.log(this.id);
 }
