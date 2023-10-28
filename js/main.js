@@ -9,6 +9,7 @@ const id7 = document.getElementById('7');
 const id8 = document.getElementById('8');
 const id9 = document.getElementById('9');
 let hint = document.querySelector('.hintBoard');
+// get html botton
 const dayNight = document.querySelector('.dayNight');
 const nightDay = document.querySelector('.nightDay');
 const shuffle = document.querySelector('.shuffleButton');
@@ -16,24 +17,31 @@ const shuffle = document.querySelector('.shuffleButton');
 // let setter = document.querySelector('.setterTile');
 const board = document.querySelector('.puzzleBoard');
 const restartBtn = document.querySelector('.playButton');
-// let setterTile = document.querySelector('.setterTile');
-// let setterTileIndex = setterTile.parentElement.id;
+// get show turn message
 let textTurn = document.querySelector('.showTurn');
 let turn = 0;
 console.log(restartBtn);
 console.log(textTurn);
-// document.body.style.backgroundImage = "url('/picture/background/town02.jpg')";
+// addEventListener button
 shuffle.addEventListener('click', shuffleTile);
-
 dayNight.addEventListener('click', function () {
+    setTimeout(() => {
+        document.body.style.backgroundImage =
+            "url('/picture/background/town02.jpg')";
+    }, 1000);
     document.body.style.backgroundImage =
-        "url('/picture/background/town02.jpg')";
+        "url('/picture/background/town03.jpg')";
 });
 nightDay.addEventListener('click', function () {
+    setTimeout(() => {
+        document.body.style.backgroundImage =
+            "url('/picture/background/town01.jpg')";
+    }, 1000);
     document.body.style.backgroundImage =
-        "url('/picture/background/town01.jpg')";
+        "url('/picture/background/town03.jpg')";
 });
 hint.addEventListener('click', showHint);
+// INITIALISE
 initialise();
 
 console.log(id1.firstChild.className);
@@ -46,8 +54,6 @@ function showHint() {
     setTimeout(() => {
         img.firstElementChild.src = './picture/Eevee3*3/hint.png';
     }, 500);
-    // console.log(this.firstElementChild);
-    // console.log(img.firstElementChild.src);
 }
 function turnCount() {
     textTurn.innerHTML = `TURN: ${turn}`;
@@ -56,10 +62,7 @@ function winnerImage() {
     let img = document.querySelector('#hintImage');
     img.firstElementChild.src = './picture/Eevee3*3/thanks.png';
 }
-// console.log(setter.parentElement.id);
-// console.log(setter);
-// console.log(textTurn);
-// console.log(setterTile.parentElement);
+
 // ############# Shuffle tile ##################
 function shuffleTile() {
     let image1 = id1.innerHTML;
@@ -145,153 +148,80 @@ function checkWin() {
         render();
     }
 }
-
-function indexPosition(setterTile) {
-    let index = setterTile.parentElement.id;
-    console.log(index);
-    return index;
-}
-// function removeEvt(element) {
-//     element.removeEventListener('click');
-// }
-// test eventListener
-// id9.addEventListener('click', function () {
-//     let oldpic = this.innerHTML;
-//     // console.log(oldpic);
-//     this.innerHTML = id6.innerHTML;
-//     id6.innerHTML = oldpic;
-//     // console.log(id6);
-//     textTurn.innerHTML = 'TURN: 1';
-//     return this.id;
-// });
-// id6.addEventListener('click', function () {
-//     let oldpic = this.innerHTML;
-//     // console.log(oldpic);
-//     this.innerHTML = id9.innerHTML;
-//     id9.innerHTML = oldpic;
-//     // console.log(id9);
-//     textTurn.innerHTML = 'TURN: 1';
-//     console.log(exchangeable(this.id));
-//     exchangeable(this.id);
-// });
-// id9.addEventListener('click', evAdd);// comment me back
-
-// id8.addEventListener('click', function () {
-//     let oldpic = this.innerHTML;
-//     // console.log(oldpic);
-//     this.innerHTML = id9.innerHTML;
-//     id9.innerHTML = oldpic;
-//     // console.log(id9);
-//     textTurn.innerHTML = 'TURN: 1';
-//     // console an Array
-//     console.log(exchangeable(this.id));
-//     return exchangeable(this.id);
-// });
+// AddEventlistener function evAdd1 - evAdd9
 function evAdd1() {
     let imgTag = this.innerHTML;
     this.innerHTML = id1.innerHTML;
     id1.innerHTML = imgTag;
-    // console.log(exchangeable(this.id));
     turn += 1;
     turnCount();
     checkWin();
-    console.log(this.id);
 }
 function evAdd2() {
     let imgTag = this.innerHTML;
     this.innerHTML = id2.innerHTML;
     id2.innerHTML = imgTag;
-    // console.log(exchangeable(this.id));
     turn += 1;
     turnCount();
     checkWin();
-    console.log(this.id);
 }
 function evAdd3() {
     let imgTag = this.innerHTML;
     this.innerHTML = id3.innerHTML;
     id3.innerHTML = imgTag;
-    // console.log(exchangeable(this.id));
     turn += 1;
     turnCount();
     checkWin();
-    console.log(this.id);
 }
 function evAdd4() {
     let imgTag = this.innerHTML;
     this.innerHTML = id4.innerHTML;
     id4.innerHTML = imgTag;
-    // console.log(exchangeable(this.id));
     turn += 1;
     turnCount();
     checkWin();
-    console.log(this.id);
 }
 function evAdd5() {
     let imgTag = this.innerHTML;
     this.innerHTML = id5.innerHTML;
     id5.innerHTML = imgTag;
-    // console.log(exchangeable(this.id));
     turn += 1;
     turnCount();
     checkWin();
-    console.log(this.id);
 }
 function evAdd6() {
     let imgTag = this.innerHTML;
     this.innerHTML = id6.innerHTML;
     id6.innerHTML = imgTag;
-    // console.log(exchangeable(this.id));
     turn += 1;
     turnCount();
     checkWin();
-    console.log(this.id);
 }
 function evAdd7() {
     let imgTag = this.innerHTML;
     this.innerHTML = id7.innerHTML;
     id7.innerHTML = imgTag;
-    // console.log(exchangeable(this.id));
     turn += 1;
     turnCount();
     checkWin();
-    console.log(this.id);
 }
 function evAdd8() {
     let imgTag = this.innerHTML;
     this.innerHTML = id8.innerHTML;
     id8.innerHTML = imgTag;
-    // console.log(exchangeable(this.id));
     turn += 1;
     turnCount();
     checkWin();
-    console.log(this.id);
 }
 function evAdd9() {
     let imgTag = this.innerHTML;
     this.innerHTML = id9.innerHTML;
     id9.innerHTML = imgTag;
-    // console.log(exchangeable(this.id));
     turn += 1;
     turnCount();
     checkWin();
-    console.log(this.id);
 }
-
-// shuffle
-// render addEventlistener
-// checkWin stopEventlistener
-// if checkwin = true gameEnd
-// retrartBtn click to play again
-// if not continue render addEventlistener
-// checkWin
-// if checkwin = true gameEnd
-// retrartBtn click to play again
-// if not continue render
-
-// console.log(setter.parentElement.id);
-// Change render() to render(index) {}
-// index = position of setter tile
+// Render setterTile position
 function render() {
     // let setter1 = document.querySelector('.setterTile');
     let setterTile = document.querySelector('.setterTile');
@@ -341,11 +271,8 @@ function render() {
         id6.addEventListener('click', evAdd9);
         id8.addEventListener('click', evAdd9);
     }
-    // let setterTile2 = document.querySelector('.setterTile');
-    // let setterIndex2 = setterTile2.parentElement.id;
-    // return console.log(setterIndex2);
 }
-// 1,2,3,4,5,6,7,8,9
+// Remove Eventlistener form render
 function removeEvent() {
     id2.removeEventListener('click', evAdd1);
     id4.removeEventListener('click', evAdd1);

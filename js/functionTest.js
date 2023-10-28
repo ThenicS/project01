@@ -27,6 +27,7 @@ for (let i = 0; i < 16; i++) {
     normalBoard.appendChild(square);
 }
 console.log(normalBoard);
+// document.body.style.backgroundImage = "url('/picture/background/town02.jpg')";
 
 // EVENT LISTENNER
 id6.addEventListener('click', function () {
@@ -69,6 +70,11 @@ function exchangeable(id) {
     if (id == 8) return [5, 7, 9];
     if (id == 9) return [6, 8];
 }
+function indexPosition(setterTile) {
+    let index = setterTile.parentElement.id;
+    console.log(index);
+    return index;
+}
 function evAdd6() {
     let imgTag = this.innerHTML;
     this.innerHTML = id6.innerHTML;
@@ -85,4 +91,59 @@ function evAdd9() {
     checkWin();
     console.log(this.id);
 }
+// show element in console
+console.log(id1.firstChild.className);
+console.log(board.hasChildNodes);
+console.log(hint);
 // เช็๋ค render ในcheckWin แล้วค่อย removeEvent
+// shuffle
+// render addEventlistener
+// checkWin stopEventlistener
+// if checkwin = true gameEnd
+// retrartBtn click to play again
+// if not continue render addEventlistener
+// checkWin
+// if checkwin = true gameEnd
+// retrartBtn click to play again
+// if not continue render
+
+// console.log(setter.parentElement.id);
+// Change render() to render(index) {}
+// index = position of setter tile
+
+// function removeEvt(element) {
+//     element.removeEventListener('click');
+// }
+// test eventListener
+// id9.addEventListener('click', function () {
+//     let oldpic = this.innerHTML;
+//     // console.log(oldpic);
+//     this.innerHTML = id6.innerHTML;
+//     id6.innerHTML = oldpic;
+//     // console.log(id6);
+//     textTurn.innerHTML = 'TURN: 1';
+//     return this.id;
+// });
+// id6.addEventListener('click', function () {
+//     let oldpic = this.innerHTML;
+//     // console.log(oldpic);
+//     this.innerHTML = id9.innerHTML;
+//     id9.innerHTML = oldpic;
+//     // console.log(id9);
+//     textTurn.innerHTML = 'TURN: 1';
+//     console.log(exchangeable(this.id));
+//     exchangeable(this.id);
+// });
+// id9.addEventListener('click', evAdd);// comment me back
+
+// id8.addEventListener('click', function () {
+//     let oldpic = this.innerHTML;
+//     // console.log(oldpic);
+//     this.innerHTML = id9.innerHTML;
+//     id9.innerHTML = oldpic;
+//     // console.log(id9);
+//     textTurn.innerHTML = 'TURN: 1';
+//     // console an Array
+//     console.log(exchangeable(this.id));
+//     return exchangeable(this.id);
+// });
