@@ -25,6 +25,7 @@ console.log(textTurn);
 // addEventListener button
 shuffle.addEventListener('click', shuffleTile);
 dayNight.addEventListener('click', function () {
+    debugger;
     setTimeout(() => {
         document.body.style.backgroundImage =
             "url('/picture/background/town02.jpg')";
@@ -226,7 +227,7 @@ function render() {
     // let setter1 = document.querySelector('.setterTile');
     let setterTile = document.querySelector('.setterTile');
     let setterIndex = setterTile.parentElement.id;
-    console.log(setterIndex);
+    console.log(`setterTile in position: ${setterIndex}`);
     // if setterTile in position 1 => can move tile2, tile4
     if (setterIndex == 1) {
         id2.addEventListener('click', evAdd1);

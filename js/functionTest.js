@@ -114,36 +114,36 @@ console.log(hint);
 // function removeEvt(element) {
 //     element.removeEventListener('click');
 // }
-// test eventListener
-// id9.addEventListener('click', function () {
-//     let oldpic = this.innerHTML;
-//     // console.log(oldpic);
-//     this.innerHTML = id6.innerHTML;
-//     id6.innerHTML = oldpic;
-//     // console.log(id6);
-//     textTurn.innerHTML = 'TURN: 1';
-//     return this.id;
-// });
-// id6.addEventListener('click', function () {
-//     let oldpic = this.innerHTML;
-//     // console.log(oldpic);
-//     this.innerHTML = id9.innerHTML;
-//     id9.innerHTML = oldpic;
-//     // console.log(id9);
-//     textTurn.innerHTML = 'TURN: 1';
-//     console.log(exchangeable(this.id));
-//     exchangeable(this.id);
-// });
-// id9.addEventListener('click', evAdd);// comment me back
+//  DEMO test eventListener
+id9.addEventListener('click', function () {
+    let oldpic = this.innerHTML;
+    // console.log(oldpic);
+    this.innerHTML = id6.innerHTML;
+    id6.innerHTML = oldpic;
+    // console.log(id6);
+    textTurn.innerHTML = 'TURN: 1';
+    return this.id;
+});
+id6.addEventListener('click', function () {
+    let oldpic = this.innerHTML;
+    // console.log(oldpic);
+    this.innerHTML = id9.innerHTML;
+    id9.innerHTML = oldpic;
+    // console.log(id9);
+    textTurn.innerHTML = 'TURN: 1';
+    console.log(exchangeable(this.id));
+    exchangeable(this.id);
+});
+id9.addEventListener('click', evAdd);// comment me back
 
-// id8.addEventListener('click', function () {
-//     let oldpic = this.innerHTML;
-//     // console.log(oldpic);
-//     this.innerHTML = id9.innerHTML;
-//     id9.innerHTML = oldpic;
-//     // console.log(id9);
-//     textTurn.innerHTML = 'TURN: 1';
-//     // console an Array
-//     console.log(exchangeable(this.id));
-//     return exchangeable(this.id);
-// });
+id8.addEventListener('click', function () {
+    let oldpic = this.innerHTML;
+    // console.log(oldpic);
+    this.innerHTML = id9.innerHTML;
+    id9.innerHTML = oldpic;
+    // console.log(id9);
+    textTurn.innerHTML = 'TURN: 1';
+    // console an Array
+    console.log(exchangeable(this.id));
+    return exchangeable(this.id);
+});

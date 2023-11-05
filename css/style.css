@@ -91,19 +91,3 @@ img.setterTile {
     border-radius: 45px;
     cursor: pointer;
 }
-.playButton:hover {
-    outline-offset: 3px;
-}
-
-/* div > img {
-    object-fit: cover;
-} */
-
-/* .puzzle div {
-    width: 118px;
-    height: 118px;
-    border: 1px solid #0c67ae;
-} */
-/* .block {
-    cursor: pointer;
-} */
